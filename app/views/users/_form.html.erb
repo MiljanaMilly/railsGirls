@@ -1,0 +1,42 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="input-group col-sm-4">
+    <div class="input-group-prepend">
+      <%= form.label :name, class: "input-group-text" %>
+    </div>
+      <%= form.text_field :name, class: "form-control" %>
+  </div>
+  <br/>
+
+  <div class="input-group col-sm-4">
+    <div class="input-group-prepend">
+      <%= form.label :lastName, class: "input-group-text" %>
+    </div>
+      <%= form.text_field :lastName, class: "form-control" %>
+  </div>
+  <br/>
+
+  <div class="input-group col-sm-4">
+    <div class="input-group-prepend">
+      <%= form.label :picture, class: "input-group-text" %>
+    </div>
+      <%= form.file_field :picture, class: "form-control" %>
+  </div>
+  <br/>
+
+
+    <%= form.submit class:"btn btn-secondary ml-3" %>
+
+<% end %>
